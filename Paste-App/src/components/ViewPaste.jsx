@@ -16,7 +16,7 @@ const ViewPaste = () => {
    <div>
       <div className='flex flex-row gap-7 justify-center mt-4 place-content-between'>
         <input
-          className='p-2 rounded-2xl m-3 bg-slate-600 w-[65%] pl-5 '
+          className='p-2 rounded-2xl m-3  w-[65%] pl-5 '
           type="text"
           placeholder='Enter title here'
           value={paste.title}
