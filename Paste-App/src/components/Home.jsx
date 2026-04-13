@@ -65,7 +65,7 @@ const Home = () => {
 
         <button
           onClick={createPaste}
-          className='p-2 rounded-2xl m-3 bg-gradient-to-r from-[#ff5733] to-[#33cfff] font-semibold text-white  '>
+          className='p-2 rounded-2xl m-3 bg-gradient-to-r from-pink-500 via-red-500 via-purple-700 via-green-500 via-blue-500 to-yellow-500 text-white  '>
           {
             pasteId ? "Update My Paste" : "Create My Paste"
           }
