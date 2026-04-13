@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeFromPastes } from '../redux/pasteSlice';
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom'
+import { Copy, Pencil, Trash2, Eye, Share2 } from "lucide-react";
 
 
 const Paste = () => {
@@ -21,23 +22,25 @@ const Paste = () => {
 
 
   const handleShare = (paste) => {
-  const url = `${window.location.origin}/pastes/${paste._id}`;
+    const url = `${window.location.origin}/pastes/${paste._id}`;
 
-  navigator.clipboard.writeText(url);
-  toast.success("Link copied! Share karo 🚀");
-};
+    navigator.clipboard.writeText(url);
+    toast.success("Link copied! Share karo 🚀");
+  };
 
 
   return (
     <div>
 
-      <input
-        className='flex p-2 rounded-2xl min-w-[600px] mt-5 justify-center place-content-center '
-        type="Search"
-        placeholder='Search Here'
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+      <div className='flex flex-row justify-center'>
+        <input
+          className='flex flex-row p-2 rounded-2xl border border-black-500 min-w-[600px] mt-5 outline-none shadow-md justify-center place-content-center '
+          type="Search"
+          placeholder='Search Here'
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       <div className='flex flex-col gap-5'>
         {
@@ -52,20 +55,24 @@ const Paste = () => {
                   <div>
                     {paste.content}
                   </div>
-                  <div className='flex flex-row gap-4 place-content-evenly'>
+                  <div className='flex flex-row gap-2 place-content-evenly ml-[1000px] '>
+
+                    <NavLink to={`/?pasteId=${paste?._id}`}>
+                      <button>
+                        <Pencil className="w-5 h-5 cursor-pointer" />
+                      </button>
+                    </NavLink>
+
+                    <NavLink to={`/pastes/${paste?._id}`}>
+                      <button>
+                        <Eye className="w-5 h-5 cursor-pointer" />
+                      </button>
+                    </NavLink>
 
 
-                    <button>
-                      <NavLink to={`/?pasteId=${paste?._id}`}>Edit</NavLink>
+                    <button onClick={() => handleDelete(paste?._id)}>
+                      <Trash2 className="w-5 h-5 cursor-pointer" />
                     </button>
-
-
-                    <button>
-                      <NavLink to={`/pastes/${paste?._id}`}>View</NavLink>
-                    </button>
-
-
-                    <button onClick={() => handleDelete(paste?._id)}>Delete</button>
 
 
                     <button onClick={() => {
@@ -73,9 +80,11 @@ const Paste = () => {
                       toast.success("Copied to clipboard")
                     }}
                     >
-                      Copy
+                      <Copy className="w-5 h-5 cursor-pointer" />
                     </button>
-                    <button onClick={() => handleShare(paste)}>Share</button>
+                    <button onClick={() => handleShare(paste)}>
+                      <Share2 className="w-5 h-5 cursor-pointer" />
+                    </button>
                   </div>
                 </div >
               )
