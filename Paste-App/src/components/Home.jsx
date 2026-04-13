@@ -55,7 +55,7 @@ const Home = () => {
     <div>
       <div className='flex flex-row gap-7 justify-center mt-4 place-content-between'>
         <input
-          className='p-2 rounded-2xl m-3 outline-none border border-black-500 w-[50%] pl-5  shadow-md '
+          className='p-2 rounded-2xl m-3 outline-none border border-black-500 w-[50%] pl-5  shadow-md  '
           type="text"
           placeholder='Enter title here'
           value={title}

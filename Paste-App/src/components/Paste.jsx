@@ -48,14 +48,15 @@ const Paste = () => {
           filteredData.map(
             (paste) => {
               return (
-                <div className='border mt-5' key={paste?._id}>
-                  <div>
+                <div className='border   mt-5' key={paste?._id}>
+                  <div className='font-extrabold'>
                     {paste.title}
                   </div>
-                  <div>
+                  <div className='font-light'>
                     {paste.content}
                   </div>
-                  <div className='flex flex-row gap-2 place-content-evenly ml-[1000px] '>
+                  
+                  <div className='flex flex-row gap-10 place-content-evenly justify-end  '>
 
                     <NavLink to={`/?pasteId=${paste?._id}`}>
                       <button>
@@ -86,6 +87,15 @@ const Paste = () => {
                       <Share2 className="w-5 h-5 cursor-pointer" />
                     </button>
                   </div>
+                  <p className="text-sm text-black-500  mt-5 font-extrabold text-right pr-10  ">
+                    {new Date(paste.createdAt).toLocaleString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
                 </div >
               )
 
