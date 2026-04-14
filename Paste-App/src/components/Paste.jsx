@@ -34,7 +34,7 @@ const Paste = () => {
 
       <div className='flex flex-row justify-center'>
         <input
-          className='flex flex-row p-2 rounded-2xl border border-black-500 min-w-[600px] mt-5 outline-none shadow-md justify-center place-content-center '
+          className='flex flex-row p-2 rounded-2xl border border-black-500 min-w-[50%] mt-5 outline-none shadow-md justify-center place-content-center '
           type="Search"
           placeholder='Search Here'
           value={searchTerm}
